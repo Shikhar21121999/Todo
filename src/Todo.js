@@ -1,9 +1,14 @@
 import React from 'react'
+// This is a Todo.js module
+// by default it exports functional component Todo 
 
-export default function Todo() {
+
+// This is a stateless functional component which renders todos
+export default function Todo({todo}) {
+    console.log(todo);
     return (
         <div>
-            
+            <div>{todo}</div>
         </div>
     )
 }
