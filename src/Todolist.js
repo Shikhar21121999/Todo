@@ -11,6 +11,6 @@ import Todo from './Todo'
 export default function Todolist({todos}) {
     // this functional component rescieves props.todos which is an array of todos
     return (
-        todos.map( (todo) => <Todo todo={todo}/> )
+        todos.map( (todo) => <Todo key={todo.id} todo={todo}/> )
     )
 }

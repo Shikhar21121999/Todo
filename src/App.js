@@ -1,5 +1,6 @@
 import React, { useState,useRef } from 'react';
 import Todolist from './Todolist'
+import { uuid } from 'uuidv4';
 
 // This is a App functional component
 // It is a stateful functional component
@@ -15,7 +16,7 @@ function App() {
 
   // utility function that prints the value in input dialog box when add to do is clicked
 
-  const [todos,setTodos]=useState(["todo 1","todo 2"])
+  const [todos,setTodos]=useState([])
   // we use usetate to declare and initialize a state
   // use state returns two things first is a variable for the current state
   // second is the function that can be used to alter or change this state
@@ -23,12 +24,16 @@ function App() {
 
   const new_todo_input_ref=useRef()
 
-  function new_todo_add() {
-    // we use this function to add the value in input to our todo
-    console.log("new_todo_add is pressed");
+  function new_todo_add(e) {
+    
+    const todo_title=new_todo_input_ref.current.value
+    if(todo_title ==='')return
 
-    // print the input
-    console.log(new_todo_input_ref.current.value);
+    // using the function form as we need to acess the prev value
+    setTodos(prevlistTodo => {
+      return [...prevlistTodo,{id:uuid(),title:todo_title,status:false}];
+    })
+    new_todo_input_ref.current.value=null
   }
 
 

@@ -8,7 +8,10 @@ export default function Todo({todo}) {
     console.log(todo);
     return (
         <div>
-            <div>{todo}</div>
+            <label>
+                <input type="checkbox" checked={todo.status} />
+                {todo.title}
+            </label>    
         </div>
     )
 }
